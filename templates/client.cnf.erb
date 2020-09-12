@@ -1,0 +1,17 @@
+[client]
+port=<%= @ports[:mysql][:port] %>
+ssl-ca=<%= @certificates[:client][:certificates]['authority']['file'] %>
+ssl-cert=<%= @certificates[:client][:certificates]['certificate']['file'] %>
+ssl-key=<%= @certificates[:client][:certificates]['private_key']['file'] %>
+
+[mysql]
+default-character-set=<%= @character_set %>
+
+[mysqld]
+port = <%= @ports[:mysql][:port] %>
+ssl-ca   = <%= @certificates[:server][:certificates]['authority']['file'] %>
+ssl-cert = <%= @certificates[:server][:certificates]['certificate']['file'] %>
+ssl-key  = <%= @certificates[:server][:certificates]['private_key']['file'] %>
+
+character_set_server=<%= @character_set %>
+collation_server=<%= @collation %>

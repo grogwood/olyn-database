@@ -1,0 +1,7 @@
+<%= @package %> <%= @package %>/root-pass password <%= @initial_password %>
+<%= @package %> <%= @package %>/re-root-pass password <%= @initial_password %>
+<% if @use_legacy_auth -%>
+<%= @package %> <%= @package %>/default-auth-override select Use Legacy Authentication Method (Retain MySQL 5.x Compatibility)
+<% else -%>
+<%= @package %> <%= @package %>/default-auth-override select Use Strong Password Encryption (RECOMMENDED)
+<% end -%>
