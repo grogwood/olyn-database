@@ -5,7 +5,7 @@ include_recipe 'olyn_percona::services'
 local_server = data_bag_item('servers', node[:hostname])
 
 # Load the mysql root user data bag item
-percona_root_user = data_bag_item('percona_users', node[:olyn_percona][:users][:root][:data_bag_item])
+percona_root_user = data_bag_item(node[:olyn_database][:users][:data_bag], node[:olyn_database][:users][:root][:data_bag_item])
 
 # Loop through each database user in the data bag
 data_bag('percona_users').each do |user_item|
