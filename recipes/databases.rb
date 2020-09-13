@@ -2,7 +2,7 @@
 local_server = data_bag_item('servers', node[:hostname])
 
 # Load the MySQL root user data bag item
-root_user = data_bag_item(node[:olyn_database][:users][:data_bag], node[:olyn_database][:users][:root][:data_bag_item])
+root_user = data_bag_item('database_users', node[:olyn_database][:users][:root][:data_bag_item])
 
 # Loop through each database item in the data bag
 data_bag('databases').each do |database_item|

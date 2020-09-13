@@ -2,13 +2,13 @@
 local_server = data_bag_item('servers', node[:hostname])
 
 # Load the mysql root user data bag item
-root_user = data_bag_item(node[:olyn_database][:users][:data_bag], node[:olyn_database][:users][:root][:data_bag_item])
+root_user = data_bag_item('database_users', node[:olyn_database][:users][:root][:data_bag_item])
 
 # Loop through each database user in the data bag
-data_bag(node[:olyn_database][:users][:data_bag]).each do |user_item|
+data_bag('database_users').each do |user_item|
 
   # Load the data bag item
-  user = data_bag_item(node[:olyn_database][:users][:data_bag], user_item)
+  user = data_bag_item('database_users', user_item)
 
   # Skip this user if auto_create is disabled
   next unless user[:auto_create]
