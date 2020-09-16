@@ -18,7 +18,7 @@ data_bag('databases').each do |database_item|
             "touch #{Chef::Config[:file_cache_path]}/db.#{database[:name]}.create.lock"
     creates "#{Chef::Config[:file_cache_path]}/db.#{database[:name]}.create.lock"
     action :run
-    only_if { local_server[:options][:bootstrapper] }
+    only_if { local_server[:bootstrapper] }
     sensitive true
   end
 
@@ -31,7 +31,7 @@ data_bag('databases').each do |database_item|
     action :run
     not_if { database[:import_sql_file].nil? }
     only_if { File.exist?(database[:import_sql_file]) }
-    only_if { local_server[:options][:bootstrapper] }
+    only_if { local_server[:bootstrapper] }
     sensitive true
   end
 

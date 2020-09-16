@@ -21,7 +21,7 @@ data_bag('database_users').each do |user_item|
             "touch #{Chef::Config[:file_cache_path]}/db.user.#{user[:username]}.create.lock"
     creates "#{Chef::Config[:file_cache_path]}/db.user.#{user[:username]}.create.lock"
     action :run
-    only_if { local_server[:options][:bootstrapper] }
+    only_if { local_server[:bootstrapper] }
     sensitive true
   end
 
@@ -33,7 +33,7 @@ data_bag('database_users').each do |user_item|
             "touch #{Chef::Config[:file_cache_path]}/db.user.#{user[:username]}.permissions.lock"
     creates "#{Chef::Config[:file_cache_path]}/db.user.#{user[:username]}.permissions.lock"
     action :run
-    only_if { local_server[:options][:bootstrapper] }
+    only_if { local_server[:bootstrapper] }
     sensitive true
   end
 end
