@@ -6,7 +6,7 @@ license 'GPL-3.0'
 supports 'debian', '>= 10'
 source_url 'https://gitlab.com/olyn/olyn_database'
 description 'Configures and imports databases and database users from data bag items'
-version '1.0.0'
+version '1.0.1'
 
 provides 'olyn_database::default'
 provides 'olyn_database::databases'
